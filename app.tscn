@@ -272,32 +272,6 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="Tween" type="Tween" parent="Tween/TASKS/ScrollContainer/VBoxContainer/Task"]
-
-editor/display_folded = true
-playback/process_mode = 1
-playback/active = false
-playback/repeat = false
-playback/speed = 2.8
-
-[node name="BG 2" type="TextureFrame" parent="Tween/TASKS/ScrollContainer/VBoxContainer/Task/Tween"]
-
-visibility/visible = false
-visibility/opacity = 0.5
-anchor/right = 1
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 21.0
-margin/top = 98.0
-margin/right = 20.0
-margin/bottom = 188.0
-texture = ExtResource( 1 )
-modulate = Color( 0.835938, 0.361692, 0.284088, 1 )
-expand = true
-stretch_mode = 0
-
 [node name="END" type="Control" parent="Tween/TASKS/ScrollContainer/VBoxContainer"]
 
 editor/display_folded = true
