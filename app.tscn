@@ -1,0 +1,378 @@
+[gd_scene load_steps=13 format=1]
+
+[ext_resource path="res://Graphics/BG.jpg" type="Texture" id=1]
+[ext_resource path="res://Scripts/Time.gd" type="Script" id=2]
+[ext_resource path="res://Fonts/Bebas_light_3.fnt" type="BitmapFont" id=3]
+[ext_resource path="res://Scripts/UI_Tasks.gd" type="Script" id=4]
+[ext_resource path="res://test_theme.thm" type="Theme" id=5]
+[ext_resource path="res://Scripts/Task.gd" type="Script" id=6]
+[ext_resource path="res://Graphics/box.png" type="Texture" id=7]
+[ext_resource path="res://Graphics/checked.png" type="Texture" id=8]
+[ext_resource path="res://Graphics/menu.png" type="Texture" id=9]
+[ext_resource path="res://Graphics/circle.png" type="Texture" id=10]
+[ext_resource path="res://Fonts/Bebas_light_2.fnt" type="BitmapFont" id=11]
+[ext_resource path="res://Graphics/add.png" type="Texture" id=12]
+
+[node name="app" type="Node"]
+
+[node name="Tween" type="Tween" parent="."]
+
+playback/process_mode = 1
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
+
+[node name="BG" type="TextureFrame" parent="Tween"]
+
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = -3.0
+margin/bottom = -3.0
+texture = ExtResource( 1 )
+modulate = Color( 0.234375, 0.234375, 0.234375, 1 )
+expand = true
+stretch_mode = 0
+
+[node name="HEAD" type="TextureFrame" parent="Tween"]
+
+anchor/right = 1
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 0.0
+margin/bottom = 81.0
+texture = ExtResource( 1 )
+modulate = Color( 0.835938, 0.361692, 0.284088, 1 )
+expand = true
+stretch_mode = 0
+
+[node name="BOTTOM" type="TextureFrame" parent="Tween"]
+
+anchor/top = 1
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 80.0
+margin/right = -3.0
+margin/bottom = -1.0
+texture = ExtResource( 1 )
+modulate = Color( 0.835938, 0.361692, 0.284088, 1 )
+expand = true
+stretch_mode = 0
+
+[node name="HEADER" type="Control" parent="Tween"]
+
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 0.0
+margin/bottom = 1.0
+script/script = ExtResource( 2 )
+
+[node name="Time" type="Label" parent="Tween/HEADER"]
+
+anchor/right = 1
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 100.0
+margin/top = 20.0
+margin/right = 100.0
+margin/bottom = 58.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0.788235, 0.72549, 0.662745, 1 )
+text = "TIME"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Date" type="Label" parent="Tween/HEADER"]
+
+anchor/left = 3
+anchor/right = 3
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = -110.0
+margin/top = 20.0
+margin/right = -351.0
+margin/bottom = 58.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0.788235, 0.72549, 0.662745, 1 )
+text = "DATE"
+align = 2
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="debug" type="Label" parent="Tween/HEADER"]
+
+anchor/top = 1
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 20.0
+margin/top = 57.0
+margin/right = 400.0
+margin/bottom = 19.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0.788235, 0.72549, 0.662745, 1 )
+text = "debug"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="TASKS" type="Control" parent="Tween"]
+
+anchor/left = 3
+anchor/right = 3
+anchor/bottom = 1
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 300.0
+margin/top = 90.0
+margin/right = -302.0
+margin/bottom = 76.0
+script/script = ExtResource( 4 )
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Tween/TASKS"]
+
+rect/min_size = Vector2( 800, 639 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+theme/theme = ExtResource( 5 )
+margin/left = -99.0
+margin/top = -10.0
+margin/right = 701.0
+margin/bottom = 630.0
+scroll/horizontal = true
+scroll/vertical = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Tween/TASKS/ScrollContainer"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 0.0
+margin/bottom = 200.0
+custom_constants/separation = 100
+alignment = 0
+
+[node name="Task" type="Control" parent="Tween/TASKS/ScrollContainer/VBoxContainer"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 3
+size_flags/vertical = 3
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 0.0
+margin/bottom = 50.0
+script/script = ExtResource( 6 )
+
+[node name="BG" type="TextureFrame" parent="Tween/TASKS/ScrollContainer/VBoxContainer/Task"]
+
+visibility/visible = false
+anchor/right = 1
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 20.0
+margin/top = 18.0
+margin/right = -769.0
+margin/bottom = 108.0
+texture = ExtResource( 1 )
+modulate = Color( 0.835938, 0.361692, 0.284088, 1 )
+expand = true
+stretch_mode = 0
+
+[node name="Check" type="TextureButton" parent="Tween/TASKS/ScrollContainer/VBoxContainer/Task"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 47.0
+margin/top = 46.0
+margin/right = 82.2
+margin/bottom = 81.2
+toggle_mode = true
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 7 )
+textures/pressed = ExtResource( 8 )
+params/scale = Vector2( 0.55, 0.55 )
+params/modulate = Color( 0.788235, 0.72549, 0.662745, 1 )
+
+[node name="Detail" type="TextureButton" parent="Tween/TASKS/ScrollContainer/VBoxContainer/Task"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 705.0
+margin/top = 41.0
+margin/right = 750.0
+margin/bottom = 86.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 9 )
+textures/pressed = ExtResource( 10 )
+params/scale = Vector2( 0.7, 0.7 )
+params/modulate = Color( 0.788235, 0.72549, 0.662745, 1 )
+
+[node name="Label" type="Label" parent="Tween/TASKS/ScrollContainer/VBoxContainer/Task"]
+
+anchor/bottom = 1
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 100.0
+margin/top = 38.0
+margin/right = 660.0
+margin/bottom = -87.0
+custom_fonts/font = ExtResource( 11 )
+custom_colors/font_color = Color( 0.788235, 0.72549, 0.662745, 1 )
+text = "Buy all from Aliexpress"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Tween" type="Tween" parent="Tween/TASKS/ScrollContainer/VBoxContainer/Task"]
+
+editor/display_folded = true
+playback/process_mode = 1
+playback/active = false
+playback/repeat = false
+playback/speed = 2.8
+
+[node name="BG 2" type="TextureFrame" parent="Tween/TASKS/ScrollContainer/VBoxContainer/Task/Tween"]
+
+visibility/visible = false
+visibility/opacity = 0.5
+anchor/right = 1
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 21.0
+margin/top = 98.0
+margin/right = 20.0
+margin/bottom = 188.0
+texture = ExtResource( 1 )
+modulate = Color( 0.835938, 0.361692, 0.284088, 1 )
+expand = true
+stretch_mode = 0
+
+[node name="END" type="Control" parent="Tween/TASKS/ScrollContainer/VBoxContainer"]
+
+editor/display_folded = true
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 3
+size_flags/vertical = 3
+margin/left = 0.0
+margin/top = 150.0
+margin/right = 0.0
+margin/bottom = 200.0
+
+[node name="BG" type="TextureFrame" parent="Tween/TASKS/ScrollContainer/VBoxContainer/END"]
+
+anchor/right = 1
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 20.0
+margin/top = 18.0
+margin/right = 20.0
+margin/bottom = 108.0
+texture = ExtResource( 1 )
+modulate = Color( 0.234375, 0.234375, 0.234375, 1 )
+expand = true
+stretch_mode = 0
+
+[node name="END" type="Control" parent="Tween/TASKS"]
+
+editor/display_folded = true
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 3
+size_flags/vertical = 3
+margin/left = -99.0
+margin/top = 590.0
+margin/right = -99.0
+margin/bottom = 790.0
+
+[node name="BG" type="TextureFrame" parent="Tween/TASKS/END"]
+
+anchor/right = 1
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 20.0
+margin/top = 18.0
+margin/right = 20.0
+margin/bottom = 108.0
+texture = ExtResource( 1 )
+modulate = Color( 0.234375, 0.234375, 0.234375, 1 )
+expand = true
+stretch_mode = 0
+
+[node name="Add" type="TextureButton" parent="Tween"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 43.0
+margin/top = 18.0
+margin/right = 88.0
+margin/bottom = 63.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 12 )
+params/scale = Vector2( 0.7, 0.7 )
+params/modulate = Color( 0.788235, 0.72549, 0.662745, 1 )
+
+[connection signal="toggled" from="Tween/TASKS/ScrollContainer/VBoxContainer/Task/Check" to="Tween/TASKS/ScrollContainer/VBoxContainer/Task" method="_on_Check_toggled"]
+
+[connection signal="pressed" from="Tween/Add" to="Tween/TASKS" method="_on_Add_pressed"]
+
+
