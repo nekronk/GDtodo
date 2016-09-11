@@ -1,5 +1,7 @@
 extends Control
 
+var state 
+	
 var task_container
 var UI_TASKS
 var debug
@@ -20,6 +22,7 @@ func _ready():
 	set_fixed_process(true)
 	
 func _fixed_process(delta):
+	state = get_node("/root/State")
 	randomize()
 	UI_TASKS = get_node("ScrollContainer/VBoxContainer")
 	task_container = get_node("ScrollContainer/VBoxContainer")
@@ -29,7 +32,7 @@ func _fixed_process(delta):
 	
 	var root_x = get_node("/root").get_size_override()[1]
 	get_node("ScrollContainer").set_size(Vector2(800, root_x - 160))
-	
+	print(state.all_tasks.size())
 	
 func _on_Add_pressed():
 	task_container.remove_child(get_node("ScrollContainer/VBoxContainer/END"))
@@ -42,7 +45,6 @@ func _on_Add_pressed():
 	task_container.add_child(new_task)
 	task_container.add_child(get_node("END").duplicate(true))
 	
-	var state = get_node("/root/State")
 	state.all_tasks[state.all_tasks.size()] = {}
 	print(state.all_tasks)
 	
