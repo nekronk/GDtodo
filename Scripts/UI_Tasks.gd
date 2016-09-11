@@ -24,7 +24,7 @@ func _fixed_process(delta):
 	UI_TASKS = get_node("ScrollContainer/VBoxContainer")
 	task_container = get_node("ScrollContainer/VBoxContainer")
 	
-	debug = get_node("/root/app/Main/HEADER/debug")
+	debug = get_node("/root/app/Tween/HEADER/debug")
 	debug.set_text(debug.get_text() +'  '+ str(task_container.get_parent().get_v_scroll()))
 	
 	var root_x = get_node("/root").get_size_override()[1]
