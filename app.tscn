@@ -272,6 +272,20 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
+[node name="TextureButton" type="TextureButton" parent="Tween/TASKS/ScrollContainer/VBoxContainer/Task"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 99.0
+margin/top = 40.0
+margin/right = 689.0
+margin/bottom = 90.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+
 [node name="END" type="Control" parent="Tween/TASKS/ScrollContainer/VBoxContainer"]
 
 editor/display_folded = true
@@ -347,7 +361,6 @@ params/modulate = Color( 0.788235, 0.72549, 0.662745, 1 )
 
 [node name="Create" type="Tween" parent="."]
 
-editor/display_folded = true
 playback/process_mode = 1
 playback/active = false
 playback/repeat = false
@@ -406,7 +419,7 @@ stretch_mode = 0
 
 [connection signal="toggled" from="Tween/TASKS/ScrollContainer/VBoxContainer/Task/Check" to="Tween/TASKS/ScrollContainer/VBoxContainer/Task" method="_on_Check_toggled"]
 
-[connection signal="mouse_enter" from="Tween/TASKS/ScrollContainer/VBoxContainer/Task/Label" to="Tween/TASKS/ScrollContainer/VBoxContainer/Task" method="_on_Label_mouse_enter"]
+[connection signal="pressed" from="Tween/TASKS/ScrollContainer/VBoxContainer/Task/TextureButton" to="Tween/TASKS/ScrollContainer/VBoxContainer/Task" method="_on_TextureButton_pressed"]
 
 [connection signal="pressed" from="Tween/Add" to="Tween/TASKS" method="_on_Add_pressed"]
 

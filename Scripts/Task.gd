@@ -17,11 +17,6 @@ func _ready():
 #	if (event.type==InputEvent.MOUSE_BUTTON and event.pressed):
 #		print("click!")
 
-func _on_Label_mouse_enter():
-	if clicked:
-		focus = true
-	else:
-		focus = false
 	
 func _init():
 	pass
@@ -36,3 +31,7 @@ func _on_Check_toggled( pressed ):
 		tween.start()
 		#bg.hide()
 
+
+
+func _on_TextureButton_pressed():
+	print("Click!")
