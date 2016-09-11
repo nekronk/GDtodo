@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=1]
 
 [ext_resource path="res://Graphics/BG.jpg" type="Texture" id=1]
-[ext_resource path="res://Scripts/Time.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/Head.gd" type="Script" id=2]
 [ext_resource path="res://Fonts/Bebas_light_3.fnt" type="BitmapFont" id=3]
 [ext_resource path="res://Scripts/UI_Tasks.gd" type="Script" id=4]
 [ext_resource path="res://Scripts/Task.gd" type="Script" id=5]

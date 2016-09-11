@@ -27,10 +27,14 @@ func _fixed_process(delta):
 	get_node("Date").set_text(str(date["day"]) + "." + str(date["month"]) + "." + str(date["year"]))
 	var root = get_node("/root")
 	#print(root.get_size_override())
-#	var debug = get_node("debug")
-#	var ratio = root.get_size_override()[0] / root.get_size_override()[1]
-#	debug.set_text(str(root.get_size_override()))# + ' Ratio:' + str(ratio))
-#	if ratio < 1:
-#		debug.set_text(debug.get_text() + '  ' + str(round(abs((ratio-1)*10))))
+	var debug = get_node("debug")
+	var ratio = root.get_size_override()[0] / root.get_size_override()[1]
+	debug.set_text(str(root.get_size_override()))# + ' Ratio:' + str(ratio))
+	if ratio < 1:
+		debug.set_text(debug.get_text() + '  ' + str(round(abs((ratio-1)*10))))
+	#var bottom = get_node("/root/app/Tween/BOTTOM")
+	var scroll = get_node("/root/app/Tween/TASKS/ScrollContainer")
+	#scroll.set_size(Vector2(800, root.get_size_override()[1]))
+	#scroll.set_custom_minimum_size(Vector2(800, root.get_size_override()[1]))
 	
 	
