@@ -39,10 +39,13 @@ func _on_Add_pressed():
 	new_task.get_node("Check").set_pressed(false)
 	new_task.get_node("BG").set_opacity(0.0)
 	#new_task.get_node("BG").hide()
-	
 	task_container.add_child(new_task)
-	
 	task_container.add_child(get_node("END").duplicate(true))
+	
+	var state = get_node("/root/State")
+	state.all_tasks[state.all_tasks.size()] = {}
+	print(state.all_tasks)
+	
 	
 	
 	

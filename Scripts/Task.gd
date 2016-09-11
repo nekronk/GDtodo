@@ -32,6 +32,5 @@ func _on_Check_toggled( pressed ):
 		#bg.hide()
 
 
-
 func _on_TextureButton_pressed():
 	print("Click!")
