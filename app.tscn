@@ -14,14 +14,14 @@
 
 [node name="app" type="Node"]
 
-[node name="Tween" type="Tween" parent="."]
+[node name="Main" type="Tween" parent="."]
 
 playback/process_mode = 1
 playback/active = false
 playback/repeat = false
 playback/speed = 1.0
 
-[node name="BG" type="TextureFrame" parent="Tween"]
+[node name="BG" type="TextureFrame" parent="Main"]
 
 anchor/right = 1
 anchor/bottom = 1
@@ -38,7 +38,7 @@ modulate = Color( 0.234375, 0.234375, 0.234375, 1 )
 expand = true
 stretch_mode = 0
 
-[node name="HEAD" type="TextureFrame" parent="Tween"]
+[node name="HEAD" type="TextureFrame" parent="Main"]
 
 anchor/right = 1
 focus/ignore_mouse = true
@@ -54,7 +54,7 @@ modulate = Color( 0.835938, 0.361692, 0.284088, 1 )
 expand = true
 stretch_mode = 0
 
-[node name="BOTTOM" type="TextureFrame" parent="Tween"]
+[node name="BOTTOM" type="TextureFrame" parent="Main"]
 
 anchor/top = 1
 anchor/right = 1
@@ -72,8 +72,9 @@ modulate = Color( 0.835938, 0.361692, 0.284088, 1 )
 expand = true
 stretch_mode = 0
 
-[node name="HEADER" type="Control" parent="Tween"]
+[node name="HEADER" type="Control" parent="Main"]
 
+editor/display_folded = true
 anchor/right = 1
 anchor/bottom = 1
 focus/ignore_mouse = false
@@ -86,7 +87,7 @@ margin/right = 0.0
 margin/bottom = 1.0
 script/script = ExtResource( 2 )
 
-[node name="Time" type="Label" parent="Tween/HEADER"]
+[node name="Time" type="Label" parent="Main/HEADER"]
 
 anchor/right = 1
 focus/ignore_mouse = true
@@ -105,7 +106,7 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="Date" type="Label" parent="Tween/HEADER"]
+[node name="Date" type="Label" parent="Main/HEADER"]
 
 anchor/left = 3
 anchor/right = 3
@@ -125,7 +126,7 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="debug" type="Label" parent="Tween/HEADER"]
+[node name="debug" type="Label" parent="Main/HEADER"]
 
 anchor/top = 1
 anchor/right = 1
@@ -145,7 +146,7 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="TASKS" type="Control" parent="Tween"]
+[node name="TASKS" type="Control" parent="Main"]
 
 anchor/left = 3
 anchor/right = 3
@@ -160,7 +161,7 @@ margin/right = -302.0
 margin/bottom = 76.0
 script/script = ExtResource( 4 )
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Tween/TASKS"]
+[node name="ScrollContainer" type="ScrollContainer" parent="Main/TASKS"]
 
 rect/min_size = Vector2( 800, 639 )
 focus/ignore_mouse = false
@@ -174,7 +175,7 @@ margin/bottom = 630.0
 scroll/horizontal = true
 scroll/vertical = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Tween/TASKS/ScrollContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Main/TASKS/ScrollContainer"]
 
 focus/ignore_mouse = false
 focus/stop_mouse = false
@@ -187,7 +188,7 @@ margin/bottom = 200.0
 custom_constants/separation = 100
 alignment = 0
 
-[node name="Task" type="Control" parent="Tween/TASKS/ScrollContainer/VBoxContainer"]
+[node name="Task" type="Control" parent="Main/TASKS/ScrollContainer/VBoxContainer"]
 
 focus/ignore_mouse = false
 focus/stop_mouse = true
@@ -199,9 +200,9 @@ margin/right = 0.0
 margin/bottom = 50.0
 script/script = ExtResource( 5 )
 
-[node name="BG" type="TextureFrame" parent="Tween/TASKS/ScrollContainer/VBoxContainer/Task"]
+[node name="BG" type="TextureFrame" parent="Main/TASKS/ScrollContainer/VBoxContainer/Task"]
 
-visibility/visible = false
+visibility/opacity = 0.0
 anchor/right = 1
 focus/ignore_mouse = true
 focus/stop_mouse = true
@@ -216,7 +217,7 @@ modulate = Color( 0.835938, 0.361692, 0.284088, 1 )
 expand = true
 stretch_mode = 0
 
-[node name="Check" type="TextureButton" parent="Tween/TASKS/ScrollContainer/VBoxContainer/Task"]
+[node name="Check" type="TextureButton" parent="Main/TASKS/ScrollContainer/VBoxContainer/Task"]
 
 focus/ignore_mouse = false
 focus/stop_mouse = true
@@ -234,7 +235,7 @@ textures/pressed = ExtResource( 7 )
 params/scale = Vector2( 0.55, 0.55 )
 params/modulate = Color( 0.788235, 0.72549, 0.662745, 1 )
 
-[node name="Detail" type="TextureButton" parent="Tween/TASKS/ScrollContainer/VBoxContainer/Task"]
+[node name="Detail" type="TextureButton" parent="Main/TASKS/ScrollContainer/VBoxContainer/Task"]
 
 focus/ignore_mouse = false
 focus/stop_mouse = true
@@ -252,7 +253,7 @@ textures/pressed = ExtResource( 9 )
 params/scale = Vector2( 0.7, 0.7 )
 params/modulate = Color( 0.788235, 0.72549, 0.662745, 1 )
 
-[node name="Label" type="Label" parent="Tween/TASKS/ScrollContainer/VBoxContainer/Task"]
+[node name="Label" type="Label" parent="Main/TASKS/ScrollContainer/VBoxContainer/Task"]
 
 anchor/bottom = 1
 focus/ignore_mouse = true
@@ -270,7 +271,7 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="END" type="Control" parent="Tween/TASKS/ScrollContainer/VBoxContainer"]
+[node name="END" type="Control" parent="Main/TASKS/ScrollContainer/VBoxContainer"]
 
 editor/display_folded = true
 focus/ignore_mouse = false
@@ -282,7 +283,7 @@ margin/top = 150.0
 margin/right = 0.0
 margin/bottom = 200.0
 
-[node name="BG" type="TextureFrame" parent="Tween/TASKS/ScrollContainer/VBoxContainer/END"]
+[node name="BG" type="TextureFrame" parent="Main/TASKS/ScrollContainer/VBoxContainer/END"]
 
 anchor/right = 1
 focus/ignore_mouse = true
@@ -298,7 +299,7 @@ modulate = Color( 0.234375, 0.234375, 0.234375, 1 )
 expand = true
 stretch_mode = 0
 
-[node name="END" type="Control" parent="Tween/TASKS"]
+[node name="END" type="Control" parent="Main/TASKS"]
 
 editor/display_folded = true
 focus/ignore_mouse = false
@@ -310,7 +311,7 @@ margin/top = 590.0
 margin/right = -99.0
 margin/bottom = 790.0
 
-[node name="BG" type="TextureFrame" parent="Tween/TASKS/END"]
+[node name="BG" type="TextureFrame" parent="Main/TASKS/END"]
 
 anchor/right = 1
 focus/ignore_mouse = true
@@ -326,7 +327,7 @@ modulate = Color( 0.234375, 0.234375, 0.234375, 1 )
 expand = true
 stretch_mode = 0
 
-[node name="Add" type="TextureButton" parent="Tween"]
+[node name="Add" type="TextureButton" parent="Main"]
 
 focus/ignore_mouse = false
 focus/stop_mouse = true
@@ -343,8 +344,67 @@ textures/normal = ExtResource( 11 )
 params/scale = Vector2( 0.7, 0.7 )
 params/modulate = Color( 0.788235, 0.72549, 0.662745, 1 )
 
-[connection signal="toggled" from="Tween/TASKS/ScrollContainer/VBoxContainer/Task/Check" to="Tween/TASKS/ScrollContainer/VBoxContainer/Task" method="_on_Check_toggled"]
+[node name="Create" type="Tween" parent="."]
 
-[connection signal="pressed" from="Tween/Add" to="Tween/TASKS" method="_on_Add_pressed"]
+editor/display_folded = true
+playback/process_mode = 1
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
+
+[node name="BG" type="TextureFrame" parent="Create"]
+
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 800.0
+margin/top = 0.0
+margin/right = -803.0
+margin/bottom = -3.0
+texture = ExtResource( 1 )
+modulate = Color( 0.234375, 0.234375, 0.234375, 1 )
+expand = true
+stretch_mode = 0
+
+[node name="HEAD" type="TextureFrame" parent="Create"]
+
+anchor/right = 1
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 800.0
+margin/top = 0.0
+margin/right = -800.0
+margin/bottom = 81.0
+texture = ExtResource( 1 )
+modulate = Color( 0.917969, 0.71383, 0.301208, 1 )
+expand = true
+stretch_mode = 0
+
+[node name="BOTTOM" type="TextureFrame" parent="Create"]
+
+anchor/top = 1
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 800.0
+margin/top = 80.0
+margin/right = -803.0
+margin/bottom = -1.0
+texture = ExtResource( 1 )
+modulate = Color( 0.917969, 0.71383, 0.301208, 1 )
+expand = true
+stretch_mode = 0
+
+[connection signal="toggled" from="Main/TASKS/ScrollContainer/VBoxContainer/Task/Check" to="Main/TASKS/ScrollContainer/VBoxContainer/Task" method="_on_Check_toggled"]
+
+[connection signal="pressed" from="Main/Add" to="Main/TASKS" method="_on_Add_pressed"]
 
 

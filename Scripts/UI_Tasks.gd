@@ -24,7 +24,7 @@ func _fixed_process(delta):
 	UI_TASKS = get_node("ScrollContainer/VBoxContainer")
 	task_container = get_node("ScrollContainer/VBoxContainer")
 	
-	debug = get_node("/root/app/Tween/HEADER/debug")
+	debug = get_node("/root/app/Main/HEADER/debug")
 	debug.set_text(debug.get_text() +'  '+ str(task_container.get_parent().get_v_scroll()))
 	
 	var root_x = get_node("/root").get_size_override()[1]
@@ -37,7 +37,8 @@ func _on_Add_pressed():
 	var new_task = get_node("ScrollContainer/VBoxContainer/Task").duplicate(true)
 	new_task.get_node("Label").set_text(rnd_tasks[randi()%rnd_tasks.size()])
 	new_task.get_node("Check").set_pressed(false)
-	new_task.get_node("BG").hide()
+	new_task.get_node("BG").set_opacity(0.0)
+	#new_task.get_node("BG").hide()
 	
 	task_container.add_child(new_task)
 	

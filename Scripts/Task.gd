@@ -2,20 +2,23 @@
 extends Control
 
 var tween
+var speed = 0.5
 var bg
+
 func _ready():
-	#get_node("Label").connect("focus_enter")
-	pass
+	tween = get_node("/root/app/Main")
 
 func _init():
-	print('Create')
+	pass
 
 func _on_Check_toggled( pressed ):
 	if get_node("Check").is_pressed():
 		bg = get_node("BG")
-		bg.show()
-		#bg.set_opacity(1.0)
-		#bg.set_modulate(Color(0.84, 0.36, 0.28))
-		#bg.set_modulate(Color(0.23, 0.23, 0.23))
+		tween.interpolate_method(bg,"set_opacity", 0, 1, speed, Tween.TRANS_QUART, Tween.EASE_OUT)
+		tween.start()
+		
 	else:
-		bg.hide()
+		tween.interpolate_method(bg,"set_opacity", 1, 0, speed/2, Tween.TRANS_QUAD, Tween.EASE_IN)
+		tween.start()
+		
+		#bg.hide()
